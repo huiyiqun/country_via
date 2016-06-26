@@ -12,7 +12,7 @@ class AddressBlock(object):
 
     @property
     def blocks(self):
-        if not hasattr(self, '_block'):
+        if not hasattr(self, '_blocks'):
             res = requests.get(
                 'http://www.nirsoft.net/countryip/{}.csv'.format(self.country_code))
             raw_blocks = [row.split(',') for row in res.text.split('\r\n') if row]
