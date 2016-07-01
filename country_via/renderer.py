@@ -12,7 +12,6 @@ class Renderer:
             self.env.globals['dev'] = dev
 
     def render(self, template):
-        print(self.env.get_template(template+'.j2').__dict__)
         return self.env.get_template(template+'.j2').render()
 
 
