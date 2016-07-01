@@ -6,7 +6,7 @@ from netaddr import cidr_merge, iprange_to_cidrs
 from ipaddress import (summarize_address_range,
                        collapse_addresses, IPv4Address)
 
-class AddressBlock(object):
+class AddressBlock:
     def __init__(self, country_code):
         self.country_code = country_code
 
