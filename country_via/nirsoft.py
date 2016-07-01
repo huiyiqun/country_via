@@ -23,10 +23,12 @@ class AddressBlock(object):
     @property
     def networks(self):
         if not hasattr(self, '_networks'):
-            self._networks = collapse_addresses(
-                itertools.chain(*[summarize_address_range(
+            self._networks = []
+            for i, block in enumerate(self.blocks):
+                self._networks += summarize_address_range(
                     IPv4Address(block['start']),
-                    IPv4Address(block['end'])) for block in self.blocks]))
+                    IPv4Address(block['end']))
+            self._networks += collapse_addresses(self._networks)
         return self._networks
 
 
