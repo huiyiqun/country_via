@@ -1,0 +1,3 @@
+{% for network in country_networks %}
+ip route replace {{ network.with_prefixlen }} via {{ via }} {% if dev %} dev {{ dev }} {% endif %}
+{% endfor %}
