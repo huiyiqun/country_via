@@ -12,5 +12,23 @@ setup(
     install_requires=[
         'requests',
         'jinja2',
-    ]
+    ],
+    classifiers=[
+        'Development Status :: 3 - Alpha',
+
+        'License :: OSI Approved :: MIT License',
+
+        'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.5',
+
+        'Intended Audience :: System Administrators',
+
+        'Environment :: Console',
+    ],
+    keywords='network route',
+    entry_points={
+        'console_scripts': {
+            'country-via=country_via.cli:country_via'
+        }
+    }
 )
