@@ -11,8 +11,8 @@ parser.add_argument('--via', '-v', help='gateway for the country',
                     required=True, dest='via')
 parser.add_argument('--dev', '-d', help='device name of gateway',
                     dest='dev')
-parser.add_argument('--format', '-f', help='format of out',
-                    choices=['ip_route'], default='ip_route', dest='format')
+parser.add_argument('--format', '-f', help='format of out', default='ip_route',
+                    choices=['ip_route', 'systemd_network'], dest='format')
 
 
 def country_via():

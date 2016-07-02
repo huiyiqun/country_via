@@ -1,0 +1,5 @@
+{% for network in country_networks %}
+[Route]
+Gateway={{ via }}
+Destination={{ network.with_prefixlen }}
+{% endfor %}
