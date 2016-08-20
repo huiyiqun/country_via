@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name="country_via",
-    version="0.0.1",
+    version="0.0.2",
     description="Route Configuring Tool for Country",
     author="Hui Yiqun",
     author_email="huiyiqun@gmail.com",
@@ -26,6 +26,9 @@ setup(
         'Environment :: Console',
     ],
     keywords='network route',
+    package_data={
+        'country_via': ['templates/*.j2']
+    },
     entry_points={
         'console_scripts': {
             'country-via=country_via.cli:country_via'
