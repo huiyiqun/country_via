@@ -32,8 +32,6 @@ def parse_args(*args, **kwargs):
 def country_via():
     args = parse_args()
 
-    print(args)
-
     if args.country_code:
         networks = CountryAddressBlock(args.country_code).networks
     else:
