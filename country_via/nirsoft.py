@@ -4,7 +4,7 @@ from ipaddress import (summarize_address_range,
                        collapse_addresses, IPv4Address)
 
 
-class AddressBlock:
+class CountryAddressBlock:
     def __init__(self, country_code):
         self.country_code = country_code
 
@@ -38,6 +38,6 @@ class AddressBlock:
 
 
 if __name__ == '__main__':
-    for network in AddressBlock('cn').networks:
+    for network in CountryAddressBlock('cn').networks:
         print(network.with_prefixlen)
-    print(len(AddressBlock('cn').networks))
+    print(len(CountryAddressBlock('cn').networks))
