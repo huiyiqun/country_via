@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name="country_via",
-    version="0.0.4",
+    version="0.0.5",
     description="Route Configuring Tool for Country",
     author="Hui Yiqun",
     author_email="huiyiqun@gmail.com",
