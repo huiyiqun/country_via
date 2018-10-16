@@ -2,20 +2,32 @@ import argparse
 
 from country_via.renderer import Renderer
 
-parser = argparse.ArgumentParser(
-    description='Generate route for given country')
 
-parser.add_argument('--country', '-c', help='country code of the destination',
-                    required=True, dest='country_code')
-parser.add_argument('--via', '-v', help='gateway for the country',
-                    required=True, dest='via')
-parser.add_argument('--dev', '-d', help='device name of gateway',
-                    dest='dev')
-parser.add_argument('--format', '-f', help='format of out', default='ip_route',
-                    choices=['ip_route', 'systemd_network', 'list'], dest='format')
+def parse_args(*args, **kwargs):
+    parser = argparse.ArgumentParser(
+        description='Generate route for given country')
+
+    parser.add_argument('--country', '-c', help='country code of the destination',
+                        required=True, dest='country_code')
+
+    variables_group = parser.add_argument_group('variables')
+    variables_group.add_argument('--via', '-v', help='gateway for the country',
+                        dest='via')
+    variables_group.add_argument('--dev', '-d', help='device name of gateway',
+                        dest='dev')
+    variables_group.add_argument('--type', '-t', help='routing type',
+                        dest='type')
+
+    parser.add_argument('--format', '-f', help='the format of the output', default='ip_route',
+                        choices=['ip_route', 'systemd_network', 'plain_list'], dest='format')
+    return parser.parse_args(*args, **kwargs)
 
 
 def country_via():
-    args = parser.parse_args()
-    renderer = Renderer(args.country_code, args.via, args.dev)
+    args = parse_args()
+    renderer = Renderer(args.country_code, {
+        'via': args.via,
+        'dev': args.dev,
+        'type': args.type,
+    })
     print(renderer.render(args.format))

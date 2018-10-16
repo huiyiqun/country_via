@@ -1,5 +1,6 @@
 {% for network in country_networks %}
 [Route]
-Gateway={{ via }}
-Destination={{ network.with_prefixlen }}
+Destination={{ network.with_prefixlen }}{% if via %}
+Gateway={{ via }}{% endif %}{% if type %}
+Type={{ type }}{% endif %}
 {% endfor %}
