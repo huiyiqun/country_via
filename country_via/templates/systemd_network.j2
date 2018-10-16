@@ -2,5 +2,6 @@
 [Route]
 Destination={{ network.with_prefixlen }}{% if via %}
 Gateway={{ via }}{% endif %}{% if type %}
-Type={{ type }}{% endif %}
+Type={{ type }}{% endif %}{% if table %}
+Table={{ table }}{% endif %}
 {% endfor %}
