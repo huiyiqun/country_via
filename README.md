@@ -1,6 +1,6 @@
 # Country Via
 
-Naive Script to help you manage routes to countries.
+Naive Scripts to help you manage routes to specific country.
 
 ## Installation
 
